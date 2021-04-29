@@ -1,0 +1,21 @@
+# The name of this app. Must be unique within a project.
+name: esendexapi
+
+# Any type will work. There is no "plain HTML" type.
+type: "php:7.4"
+
+# There is no need for a writable file mount, so set it to the smallest possible size.
+disk: 256
+
+# Configure the web server to serve our static site.
+web:
+  locations:
+    # This tells Nginx to serve from the base directory
+    "/apiesendex":
+      root: "public"
+      index: ["index.php"]
+      allow: true
+
+cache:
+  enabled: false
+  default_ttl: 0
